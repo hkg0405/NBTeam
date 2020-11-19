@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>滚轮事件</title>
+		<style type="text/css">
+			#wrap{
+				width: 300px;
+				font-size: 50px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+			<div id="wrap">
+			　　为什么要补维D？
+			
+			　　补维D主要是为了促进钙的吸收，不仅帮助宝宝长个子，还能预防佝偻病。得了佝偻病的孩子，容易骨骼变软和弯曲变形，形成X型、O型腿，囟门晚闭，出现鸡胸等情况。
+			
+			　　什么时候开始补？补多少合适？
+			
+			　　婴儿出生后2 周左右每日补充400 IU（国际单位）的维生素D
+			
+			　　对于纯母乳喂养的宝宝，可以喂奶前直接滴入婴儿口中，也可以将维生素 D 滴在妈妈乳头上
+			
+			　　对于配方奶喂养的宝宝，在保证奶量的同时选择符合国家标准的配方食品，也能获得足够的维生素 D，无需额外补充
+			
+			　　如果是混合喂养的宝宝，要算一下通过配方奶粉补了多少维生素 D，剩余的由维生素 D 制剂来补
+		</div>
+	</body>
+	<script type="text/javascript">
+		var wrap = document.querySelector('#wrap');
+
+		if(navigator.userAgent.indexOf('Firefox') != -1){
+			// // 火狐事件  DOMMouseScroll
+			document.addEventListener('DOMMouseScroll', function(){
+				console.log(event);
+				if(event.detail > 0){
+					console.log('向下滚动');
+				}else{
+					console.log('向上滚动');
+				}
+			},false);
+		}else{
+			// onmousewheel 非火狐事件
+			document.onmousewheel = function(){
+				console.log('鼠标滚轮事件');
+				console.log(event);
+				if(event.wheelDelta < 0){
+					console.log('向下滚动！');
+				}else{
+					console.log('向上滚动！');
+				}
+			}
+		}
+	</script>
+</html>

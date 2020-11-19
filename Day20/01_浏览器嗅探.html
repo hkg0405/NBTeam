@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// console.log(navigator);
+		// navigator.userAgent; 可以获取当前正在运行页面的浏览器信息。 我们可以通过 Chrome/Firefox/Edge/Opera/Safari 关键词，在navigator.userAgent中查找判断当前浏览器。
+		if(navigator.userAgent.indexOf('Firefox') != -1){
+			document.body.style.backgroundColor = 'red';
+			console.log('当前浏览器是火狐！');
+		}else if(navigator.userAgent.indexOf('Chrome') != -1){
+			document.body.style.backgroundColor = 'orange';
+			console.log('当前浏览器是谷歌！');
+		}
+	</script>
+</html>
