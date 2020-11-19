@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.a,.b{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				color: #fff;
+				text-align: center;
+				font-size: 50px;
+				line-height: 200px;
+				position: absolute;
+			}
+			.a{
+				left: 0px;
+				top: 0px;
+			}
+			.b{
+				left: 600px;
+				top: 250px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="a">A</div>
+		<div class="b">B</div>
+	</body>
+	<script type="text/javascript">
+		var a = document.querySelector('.a');
+		var b = document.querySelector('.b');
+		
+		a.onmousedown = function(){
+			var event1 = event;
+			var left = this.offsetLeft;
+			var top = this.offsetTop;
+			document.onmousemove = function(){
+				var event2 = event;
+				a.style.left = event2.clientX - event1.clientX + left + 'px';
+				a.style.top = event2.clientY - event1.clientY + top + 'px';
+				if(isCrash(a,b)){
+					b.style.backgroundColor = 'yellow';
+				}else{
+					b.style.backgroundColor = 'red';
+				}
+				
+			}
+		}
+		a.onmouseup = function(){
+			document.onmousemove = null;
+		}
+		function isCrash(obj1,obj2){
+			// 设置碰撞状态，true 默认已经碰撞
+			var isCrash = true;
+			// 获取对象1信息
+			var obj1Left = obj1.offsetLeft;
+			var obj1Right = obj1Left + obj1.offsetWidth;
+			var obj1Top = obj1.offsetTop;
+			var obj1Bottom = obj1.offsetTop + obj1.offsetHeight;
+			
+			// 获取对象2信息
+			var obj2Left = obj2.offsetLeft;
+			var obj2Right = obj2Left + obj2.offsetWidth;
+			var obj2Top = obj2.offsetTop;
+			var obj2Bottom = obj2.offsetTop + obj2.offsetHeight;
+			
+			// 根据条件判断是否 碰撞
+			if(obj1Right >= obj2Left && obj1Left <= obj2Right && obj1Bottom >=obj2Top && obj1Top <= obj2Bottom){
+				isCrash = true;
+			}else{
+				isCrash = false;
+			}
+			return isCrash;
+		}
+	</script>
+</html>
