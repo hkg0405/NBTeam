@@ -2,6 +2,7 @@
   <div id="app">
     <div>我是武帅兴</div>
     hello, vue
+    <div>我是企帆</div>
   </div>
 </template>
 
