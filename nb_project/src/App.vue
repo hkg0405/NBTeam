@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div>我是武帅兴</div>
+    <div>我是武帅兴啊</div>
     hello, vue
     <div>我是企帆</div>
   </div>
