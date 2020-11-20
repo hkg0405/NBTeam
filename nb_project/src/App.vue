@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div>我是武帅兴</div>
+    hello, vue
   </div>
 </template>
 
